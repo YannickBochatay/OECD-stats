@@ -1,0 +1,61 @@
+body {
+    background-color: #2a2a2b;
+}
+h3, h6, label, small {
+    color: #bbb;
+}
+h6 {
+    text-align: right;
+}
+.btn-group > .btn.active {
+    z-index:auto;
+}
+.DateInput_input {
+    font-size:16px;
+    padding:5px 25px;
+}
+.DateRangePickerInput {
+    display:flex;
+    align-items:center;
+    border-radius:4px;
+}
+.DateRangePickerInput > div {
+    width:auto;
+}
+.highcharts-tooltip tspan {
+    fill:white;
+}
+.main-container {
+    display:flex;
+    flex-direction: column;
+    align-items: stretch;
+    height:100vh;
+}
+.main-container h3 {
+    text-align: center;
+}
+.main-container .chart {
+    flex:1;
+}
+.main-container .footer {
+    margin-bottom:5px;
+    display:flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+.main-container .source {
+    flex:1;
+    text-align: right;
+}
+.twitter {
+    font-size: 0.8rem;
+    color: white;
+    background-color: rgb(29, 161, 242);
+    padding: 5px 10px;
+    align-self: center;
+    border-radius: 4px;
+}
+.twitter:hover {
+    text-decoration:none;
+    color:white;
+}
