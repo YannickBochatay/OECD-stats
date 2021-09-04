@@ -7,16 +7,17 @@ export default withDataContext(class Dimensions extends React.Component {
     state = { dimensionsOptions : {} }
 
     fetchDimensions = async() => {
-        const res = await fetch("http://stats.oecd.org/restsdmx/sdmx.ashx/GetDataStructure/DP_LIVE", { mode : "cors" })
+        const res = await fetch("https://stats.oecd.org/restsdmx/sdmx.ashx/GetDataStructure/DP_LIVE")
         const text = await res.text()
         const xml = new DOMParser().parseFromString(text, "text/xml")
 
         const codeLists = [...xml.querySelectorAll("CodeList")]
 
         const dimensionsOptions = codeLists.reduce((obj, codeList) => {
-            const labelSelect = codeList.querySelector("Name[lang=fr]").textContent
+            const labelSelect = codeList.querySelector("Name[*|lang=fr]")?.textContent || codeList.querySelector("Name[*|lang=en]")?.textContent
+
             const options = [...codeList.querySelectorAll("Code")].map(code => ({
-                label : code.querySelector("Description[lang=fr]").textContent,
+                label : code.querySelector("Description[*|lang=fr]")?.textContent || code.querySelector("Description[*|lang=en]")?.textContent,
                 value : code.getAttribute("value")
             }))
 
