@@ -11,6 +11,7 @@ class App extends React.Component {
   state = {
     data : [],
     database : null,
+    dimensions : {},
     chartHeight : null,
     isFetching : false,
     fetchError : null
